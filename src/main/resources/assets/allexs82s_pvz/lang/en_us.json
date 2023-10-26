@@ -1,0 +1,17 @@
+{
+  "item.allexs82s_pvz.sun": "Sun",
+  "item.allexs82s_pvz.empty_seed_packet": "Empty seed packet",
+  "item.allexs82s_pvz.silver_coin": "Silver coin",
+  "item.allexs82s_pvz.basic_zombie_spawn_egg": "Basic zombie spawn egg",
+  "item.allexs82s_pvz.pea_item": "Pea",
+  "item.allexs82s_pvz.peashooter_seed_packet": "Peashooter seed packet",
+
+
+  "entity.allexs82s_pvz.basic_zombie": "Basic zombie",
+  "entity.allexs82s_pvz.peashooter": "Peashooter",
+  "entity.allexs82s_pvz.pea": "Pea",
+
+  "itemGroup.allexs82s_pvz.items": "Plants vs. Zombies: General",
+  "itemGroup.allexs82s_pvz.seed_packets": "Plants vs. Zombies: Seed packets",
+  "itemGroup.allexs82s_pvz.zombies": "Plants vs. Zombies: Zombies"
+}
