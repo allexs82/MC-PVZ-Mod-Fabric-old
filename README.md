@@ -1,4 +1,4 @@
-# allexs82's Plants vs. Zombies Mod for Minecraft 1.18.2
+# allexs82's Plants vs. Zombies Mod
 
 ### Overview
 
@@ -30,11 +30,11 @@ This mod is released under the **CC-BY-NC-4.0** license. You are free to use, mo
 
 ### Author
 
-This mod was created by **allexs82**. You can find the author's other projects and contact information on their GitHub profile: [allexs82 on GitHub](https://github.com/allex82).
+This mod was created by **allexs82**. You can find the author's other projects and contact information on their GitHub profile: [allexs82 on GitHub](https://github.com/allexs82).
 
 ### Contributing
 
-If you would like to contribute to the development of this mod, please open an issue or submit a pull request on the GitHub repository: [allexs82's Plants vs. Zombies Mod](https://github.com/allex82/MC-PVZ-Mod-Fabric).
+If you would like to contribute to the development of this mod, please open an issue or submit a pull request on the GitHub repository: [allexs82's Plants vs. Zombies Mod](https://github.com/allexs82/MC-PVZ-Mod-Fabric).
 
 ### Support
 
