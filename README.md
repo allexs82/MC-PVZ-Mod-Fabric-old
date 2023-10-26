@@ -26,7 +26,7 @@ Welcome to the allexs82's Plants vs. Zombies Mod for Minecraft 1.18.2! This mod 
 
 ### License
 
-This mod is released under the **CC-BY-NC-4.0** license. You are free to use, modify, and distribute the mod, but you must provide appropriate attribution and may not use it for commercial purposes. For full details, please refer to the [LICENSE](LICENSE) file.
+This mod is released under the [**CC-BY-4.0**](https://creativecommons.org/licenses/by/4.0/) license. You are free to use, modify, and distribute the mod, but you must provide appropriate attribution and may not use it for commercial purposes. For full details, please refer to the [LICENSE](LICENSE) file.
 
 ### Author
 
