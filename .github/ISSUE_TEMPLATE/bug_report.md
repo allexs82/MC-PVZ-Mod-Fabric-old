@@ -6,25 +6,39 @@ labels: bug
 assignees: allexs82
 
 ---
+**Description:**
+[Provide a clear and concise description of the bug you encountered.]
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Steps to Reproduce:**
+1. [List the steps to reproduce the bug, starting with the first action.]
+2. 
+3. 
+4. 
 
-**To Reproduce**
-Steps to reproduce the behavior:
-Write down what you need to do to repeat the bug.
+**Expected Behavior:**
+[Explain what you expected to happen when you performed the steps above.]
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**Actual Behavior:**
+[Describe what actually happened, including any error messages or unexpected behavior.]
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+**Screenshots/Logs:**
+[If applicable, attach screenshots or error logs (.minecraft/logs or .minecraft/crash_reports) to help illustrate the issue.]
 
-**Please attach the log file:**
- 1. Go to Minecraft installation folder.
- 2. Click on 'crash-reports' or 'logs' if game didn't crash.
- 3. Open latest log file.
- 4. Attach file to report.
+**System Information:**
+- Operating System: [e.g., Windows 10, macOS, Linux]
+- Minecraft Client Version: [if applicable]
+- Mod Version: [if known]
+- Java Version: [if applicable]
+- Any other relevant information:
 
-**Additional context**
-Add any other context about the problem here.
+**Additional Context:**
+[Provide any additional information or context that may be helpful in diagnosing the issue.]
+
+**Possible Fix:**
+[If you have a suggestion for how to fix the bug, you can provide it here.]
+
+**Is this issue reproducible?**
+[Indicate whether the issue is consistently reproducible, or if it occurred only once.]
+
+**Attachments:**
+[Attach any relevant files or documents that may help in understanding and resolving the bug.]
