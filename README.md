@@ -14,7 +14,7 @@ Welcome to the allexs82's Plants vs. Zombies Mod for Minecraft 1.18.2! This mod 
 
 ### Installation
 
-1. Download the latest version of Minecraft Fabric and Fabric API for Minecraft 1.18.2 from [Fabric offical site](https://fabricmc.net/use/installer/).
+1. Download the latest version of Minecraft Fabric and Fabric API for Minecraft 1.18.2 from [Fabric official site](https://fabricmc.net/use/installer/).
 
 2. Download the GeckoLib from [here](https://modrinth.com/mod/geckolib).
 
