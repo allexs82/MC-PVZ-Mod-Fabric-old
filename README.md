@@ -2,7 +2,7 @@
 
 ### Overview
 
-Welcome to the allexs82's Plants vs. Zombies Mod for Minecraft 1.18.2! This mod brings the iconic Plants vs. Zombies game into the world of Minecraft, allowing you to defend your base against hordes of zombies using a variety of plants and powerful tools. Whether you're a fan of PvZ or just looking for an exciting new gameplay experience, this mod has something for you.
+Welcome to the allexs82's Plants vs. Zombies Mod for Minecraft! This mod brings the iconic Plants vs. Zombies game into the world of Minecraft, allowing you to defend your base against hordes of zombies using a variety of plants and powerful tools. Whether you're a fan of PvZ or just looking for an exciting new gameplay experience, this mod has something for you.
 
 ### Features
 
