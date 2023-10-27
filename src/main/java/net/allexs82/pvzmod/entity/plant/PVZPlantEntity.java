@@ -1,12 +1,16 @@
 package net.allexs82.pvzmod.entity.plant;
 
+import net.allexs82.pvzmod.init.ModSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.predicate.entity.EntityPredicates;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -36,8 +40,9 @@ public abstract class PVZPlantEntity extends MobEntity {
     }
 
     @Override
-    public boolean collides() {
-        return false;
+    public boolean damage(DamageSource source, float amount) {
+        Entity attacker = source.getAttacker();
+        return !(attacker instanceof PlayerEntity || attacker instanceof PVZPlantEntity) && super.damage(source, amount);
     }
 
     @Override
@@ -67,5 +72,11 @@ public abstract class PVZPlantEntity extends MobEntity {
                 this.pushAway(entity);
             }
         }
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return ModSounds.GULP;
     }
 }

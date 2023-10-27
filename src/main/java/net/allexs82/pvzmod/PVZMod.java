@@ -1,9 +1,7 @@
 package net.allexs82.pvzmod;
 
-import net.allexs82.pvzmod.init.ModBlocks;
-import net.allexs82.pvzmod.init.ModEventsRegister;
-import net.allexs82.pvzmod.init.ModItems;
-import net.allexs82.pvzmod.init.ModRegistries;
+import net.allexs82.pvzmod.init.*;
+import net.allexs82.pvzmod.world.gen.ModEntitySpawn;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,11 +17,15 @@ public class PVZMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        ModSounds.registerModSounds();
+
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
         ModEventsRegister.registerEvents();
 
         ModRegistries.registerModStuffs();
+
+        ModEntitySpawn.addEntitySpawn();
 
         GeckoLib.initialize();
     }

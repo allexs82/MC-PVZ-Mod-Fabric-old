@@ -6,12 +6,17 @@
   "item.allexs82s_pvz.pea_item": "Pea",
   "item.allexs82s_pvz.peashooter_seed_packet": "Peashooter seed packet",
 
-
   "entity.allexs82s_pvz.basic_zombie": "Basic zombie",
   "entity.allexs82s_pvz.peashooter": "Peashooter",
   "entity.allexs82s_pvz.pea": "Pea",
 
   "itemGroup.allexs82s_pvz.items": "Plants vs. Zombies: General",
   "itemGroup.allexs82s_pvz.seed_packets": "Plants vs. Zombies: Seed packets",
-  "itemGroup.allexs82s_pvz.zombies": "Plants vs. Zombies: Zombies"
+  "itemGroup.allexs82s_pvz.zombies": "Plants vs. Zombies: Zombies",
+
+  "allexs82s_pvz.zombie_groan": "Zombie groans",
+  "allexs82s_pvz.zombie_splat": "Zombie damaged",
+  "allexs82s_pvz.zombie_chomp": "Zombie attacks",
+  "allexs82s_pvz.gulp": "Plant died"
+
 }

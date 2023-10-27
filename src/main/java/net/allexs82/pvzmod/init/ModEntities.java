@@ -20,7 +20,7 @@ public class ModEntities {
     public static final EntityType<PeashooterEntity> PEASHOOTER = Registry.register(
             Registry.ENTITY_TYPE, new Identifier(PVZMod.MOD_ID, "peashooter"),
             FabricEntityTypeBuilder.create(SpawnGroup.MISC, PeashooterEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.6f, 1.0f)).build());
+                    .dimensions(EntityDimensions.fixed(0.45f, 0.75f)).build());
     public static final EntityType<PeaEntity> PEA = Registry.register(Registry.ENTITY_TYPE, new Identifier(PVZMod.MOD_ID, "pea"),
             FabricEntityTypeBuilder.<PeaEntity>create(SpawnGroup.MISC, PeaEntity::new)
                     .dimensions(EntityDimensions.fixed(0.25f, 0.25f))

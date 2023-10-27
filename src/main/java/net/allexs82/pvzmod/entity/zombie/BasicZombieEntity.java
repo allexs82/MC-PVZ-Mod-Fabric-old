@@ -55,11 +55,6 @@ public class BasicZombieEntity extends PVZZombieEntity implements IAnimatable, M
         data.addAnimationController(new AnimationController<BasicZombieEntity>(this, "controller", 0, this::predicate));
     }
 
-    @Override
-    public boolean hurtByWater() {
-        return true;
-    }
-
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<BasicZombieEntity> event) {
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation(walkAnimName, ILoopType.EDefaultLoopTypes.LOOP));

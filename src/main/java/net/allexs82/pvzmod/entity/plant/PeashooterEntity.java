@@ -2,6 +2,7 @@ package net.allexs82.pvzmod.entity.plant;
 
 import net.allexs82.pvzmod.entity.projectile.thrown.PeaEntity;
 import net.allexs82.pvzmod.entity.zombie.PVZZombieEntity;
+import net.allexs82.pvzmod.init.ModSounds;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.goal.*;
@@ -88,7 +89,7 @@ public class PeashooterEntity extends PVZPlantEntity implements IAnimatable, Ran
         double g = target.getZ() - this.getZ();
         double h = Math.sqrt(e * e + g * g) * (double)0.2f;
         peaEntity.setVelocity(e, f + h, g, 1.6f, 1.0f);
-        this.playSound(SoundEvents.ENTITY_SNOW_GOLEM_SHOOT, 1.0f, 0.4f / (this.getRandom().nextFloat() * 0.4f + 0.8f));
+        this.playSound(ModSounds.PROJECTILE_THROW, 0.5f, 1.0f);
         this.world.spawnEntity(peaEntity);
     }
 }

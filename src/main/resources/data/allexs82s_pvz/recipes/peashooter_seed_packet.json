@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "X#X",
+        "PPP"
+    ],
+    "key": {
+        "#": {
+            "item": "allexs82s_pvz:sun"
+        },
+        "X": {
+            "item": "allexs82s_pvz:empty_seed_packet"
+        },
+        "P": {
+            "item": "allexs82s_pvz:pea_item"
+        }
+    },
+    "result": {
+        "item": "allexs82s_pvz:peashooter_seed_packet",
+        "count": 2
+    }
+}

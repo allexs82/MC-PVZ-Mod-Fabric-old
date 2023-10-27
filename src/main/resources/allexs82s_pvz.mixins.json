@@ -4,10 +4,10 @@
   "package": "net.allexs82.pvzmod.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "PlayerEntityMixin",
+    "ShovelItemMixin"
   ],
-  "client": [
-    "PlayerEntityMixin"
-  ],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
   }
