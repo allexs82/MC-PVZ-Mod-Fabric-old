@@ -31,8 +31,4 @@ public abstract class PVZZombieEntity extends HostileEntity implements Monster {
         return ModSounds.ZOMBIE_SPLAT;
     }
 
-    @Override
-    protected SoundEvent getSplashSound() {
-        return ModSounds.ZOMBIE_CHOMP;
-    }
 }

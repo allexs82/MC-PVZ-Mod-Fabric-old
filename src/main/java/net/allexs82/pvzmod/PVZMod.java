@@ -13,7 +13,7 @@ public class PVZMod implements ModInitializer {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-    public static final String NBT_MODIFIER = MOD_ID + "_Data";
+    public static final String NBT_MODIFIER = MOD_ID + "_data";
 
     @Override
     public void onInitialize() {

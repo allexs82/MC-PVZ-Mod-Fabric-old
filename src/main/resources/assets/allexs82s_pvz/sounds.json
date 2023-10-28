@@ -44,5 +44,11 @@
     "sounds":[
       "allexs82s_pvz:shovel"
     ]
+  },
+  "money_falls": {
+    "subtitles": "allexs82s_pvz.money_falls",
+    "sounds":[
+      "allexs82s_pvz:moneyfalls"
+    ]
   }
 }

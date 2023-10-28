@@ -12,7 +12,6 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -83,7 +82,7 @@ public class PeashooterEntity extends PVZPlantEntity implements IAnimatable, Ran
     @Override
     public void attack(LivingEntity target, float pullProgress) {
         PeaEntity peaEntity = new PeaEntity(this.world, this);
-        double d = target.getEyeY() - 1.0D;
+        double d = target.getEyeY() - 2.0D;
         double e = target.getX() - this.getX();
         double f = d - peaEntity.getY();
         double g = target.getZ() - this.getZ();

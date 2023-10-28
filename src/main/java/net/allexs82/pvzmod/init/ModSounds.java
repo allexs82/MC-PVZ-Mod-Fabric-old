@@ -18,6 +18,8 @@ public class ModSounds {
 
     public static SoundEvent SHOVEL = registerSoundEvents("shovel");
 
+    public static SoundEvent MONEY_FALLS = registerSoundEvents("money_falls");
+
     private static SoundEvent registerSoundEvents(String name) {
         Identifier id = new Identifier(PVZMod.MOD_ID, name);
         return Registry.register(Registry.SOUND_EVENT, id, new SoundEvent(id));

@@ -1,5 +1,6 @@
 package net.allexs82.pvzmod.entity.zombie;
 
+import net.allexs82.pvzmod.entity.ai.goal.BasicZombieAttackGoal;
 import net.allexs82.pvzmod.entity.plant.PVZPlantEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
@@ -42,7 +43,7 @@ public class BasicZombieEntity extends PVZZombieEntity implements IAnimatable, M
 
     @Override
     protected void initGoals(){
-        this.goalSelector.add(1, new MeleeAttackGoal(this, 1.2D, false));
+        this.goalSelector.add(1, new BasicZombieAttackGoal(this, 1.0, false));
         this.goalSelector.add(2, new WanderAroundFarGoal(this, 1));
 
         this.targetSelector.add(0, new ActiveTargetGoal<>(this, PVZPlantEntity.class, true));

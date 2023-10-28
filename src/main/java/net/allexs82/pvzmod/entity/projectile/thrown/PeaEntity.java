@@ -61,7 +61,7 @@ public class PeaEntity extends ThrownItemEntity {
         super.onEntityHit(entityHitResult);
         Entity entity = entityHitResult.getEntity();
         int damage = 2;
-        if (this.getOwner() instanceof PVZPlantEntity || entityHitResult.getEntity() instanceof PlayerEntity) damage = 0;
+        if (entityHitResult.getEntity() instanceof PVZPlantEntity || entityHitResult.getEntity() instanceof PlayerEntity) damage = 0;
         entity.damage(DamageSource.thrownProjectile(this, this.getOwner()), damage);
     }
 

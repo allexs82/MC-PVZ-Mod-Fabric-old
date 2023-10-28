@@ -1,34 +1,25 @@
 package net.allexs82.pvzmod.item;
 
+import net.allexs82.pvzmod.init.ModSounds;
 import net.allexs82.pvzmod.util.Money;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+import org.checkerframework.checker.index.qual.Positive;
 
-public class SilverCoinItem extends Item {
-    public SilverCoinItem(Settings settings) {
+public class MoneyItem extends Item {
+
+    private final int moneyValue;
+    public MoneyItem(Settings settings, @Positive int moneyValue) {
         super(settings);
-    }
-
-    @Override
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        World world = context.getWorld();
-        PlayerEntity player = context.getPlayer();
-
-        if (player == null) return ActionResult.FAIL;
-        if (!world.isClient()) {
-            player.getInventory().getMainHandStack().decrement(1);
-            Money.addMoney(player, 5);
-            return ActionResult.SUCCESS;
-        }
-
-        return ActionResult.PASS;
+        this.moneyValue = moneyValue;
     }
 
     @Override
@@ -37,7 +28,8 @@ public class SilverCoinItem extends Item {
         if (!user.getAbilities().creativeMode) itemStack.decrement(1);
         user.incrementStat(Stats.USED.getOrCreateStat(this));
         if (!world.isClient()) {
-            Money.addMoney(user, 5);
+            Money.addMoney(user, this.moneyValue);
+            world.playSound(null, user.getX(), user.getY(), user.getZ(), ModSounds.MONEY_FALLS, SoundCategory.PLAYERS, 1.0f, 1.0f);
         }
         return TypedActionResult.success(itemStack);
     }

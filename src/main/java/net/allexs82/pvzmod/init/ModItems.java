@@ -2,10 +2,9 @@ package net.allexs82.pvzmod.init;
 
 import net.allexs82.pvzmod.PVZMod;
 import net.allexs82.pvzmod.item.PeaItem;
-import net.allexs82.pvzmod.item.SilverCoinItem;
+import net.allexs82.pvzmod.item.MoneyItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
-import net.minecraft.item.Items;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -21,7 +20,7 @@ public class ModItems {
             new Item(new FabricItemSettings().group(ModItemGroup.SEED_PACKETS)));
 
     public static final Item SILVER_COIN = registerItem("silver_coin",
-            new SilverCoinItem(new FabricItemSettings().group(ModItemGroup.ITEMS)));
+            new MoneyItem(new FabricItemSettings().group(ModItemGroup.ITEMS), 5));
 
     public static final Item BASIC_ZOMBIE_SPAWN_EGG = registerItem("basic_zombie_spawn_egg",
             new SpawnEggItem(ModEntities.BASIC_ZOMBIE, 0x310C0C, 0x0B5394,

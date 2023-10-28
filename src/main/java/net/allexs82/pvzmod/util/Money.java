@@ -4,9 +4,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import org.checkerframework.checker.index.qual.Positive;
 import org.jetbrains.annotations.NotNull;
 
-/**
- * Method library for using money nbt from PlayerEntity
- */
 public abstract class Money {
 
     private static final String NBT_KEY = "Money";
