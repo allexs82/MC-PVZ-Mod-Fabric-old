@@ -3,6 +3,7 @@ package net.allexs82.pvzmod.init;
 import net.allexs82.pvzmod.PVZMod;
 import net.allexs82.pvzmod.item.PeaItem;
 import net.allexs82.pvzmod.item.MoneyItem;
+import net.allexs82.pvzmod.item.SeedPacketItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.item.SpawnEggItem;
@@ -22,6 +23,9 @@ public class ModItems {
     public static final Item SILVER_COIN = registerItem("silver_coin",
             new MoneyItem(new FabricItemSettings().group(ModItemGroup.ITEMS), 5));
 
+    public static final Item GOLDEN_COIN = registerItem("golden_coin", new MoneyItem(
+            new FabricItemSettings().group(ModItemGroup.ITEMS), 50));
+
     public static final Item BASIC_ZOMBIE_SPAWN_EGG = registerItem("basic_zombie_spawn_egg",
             new SpawnEggItem(ModEntities.BASIC_ZOMBIE, 0x310C0C, 0x0B5394,
                     new FabricItemSettings().group(ModItemGroup.ZOMBIES)));
@@ -30,8 +34,7 @@ public class ModItems {
             new PeaItem(new FabricItemSettings().group(ModItemGroup.ITEMS)));
 
     public static final Item PEASHOOTER_SEED_PACKET = registerItem("peashooter_seed_packet",
-            new SpawnEggItem(ModEntities.PEASHOOTER, 0xFFFFFF, 0xFFFFFF,
-                    new FabricItemSettings().group(ModItemGroup.SEED_PACKETS)));
+            new SeedPacketItem(ModEntities.PEASHOOTER, new FabricItemSettings().group(ModItemGroup.SEED_PACKETS)));
 
 
     //-----------------------------------------------------------------//

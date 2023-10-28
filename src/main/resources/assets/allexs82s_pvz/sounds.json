@@ -50,5 +50,18 @@
     "sounds":[
       "allexs82s_pvz:moneyfalls"
     ]
-  }
+  },
+  "plant": {
+    "subtitles": "allexs82s_pvz.plant",
+    "sounds": [
+      "allexs82s_pvz:plant",
+      "allexs82s_pvz:plant2"
+    ]
+  },
+  "plant_water": {
+  "subtitles": "allexs82s_pvz.plant_water",
+  "sounds": [
+    "allexs82s_pvz:plant_water"
+  ]
+}
 }

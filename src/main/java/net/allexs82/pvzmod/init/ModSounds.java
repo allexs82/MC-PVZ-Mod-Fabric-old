@@ -20,6 +20,10 @@ public class ModSounds {
 
     public static SoundEvent MONEY_FALLS = registerSoundEvents("money_falls");
 
+    public static SoundEvent PLANT = registerSoundEvents("plant");
+
+    public static  SoundEvent PLANT_WATER = registerSoundEvents("plant_water");
+
     private static SoundEvent registerSoundEvents(String name) {
         Identifier id = new Identifier(PVZMod.MOD_ID, name);
         return Registry.register(Registry.SOUND_EVENT, id, new SoundEvent(id));

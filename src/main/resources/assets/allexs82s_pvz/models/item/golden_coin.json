@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "allexs82s_pvz:item/golden_coin"
+  }
+}
