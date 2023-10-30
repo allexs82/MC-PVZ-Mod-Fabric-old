@@ -22,7 +22,7 @@
       "net.allexs82.pvzmod.PVZMod"
     ],
     "client": [
-      "net.allexs82.pvzmod.PVZClientMod"
+      "net.allexs82.pvzmod.PVZModClient"
     ]
   },
   "mixins": [

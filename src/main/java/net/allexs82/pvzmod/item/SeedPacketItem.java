@@ -2,6 +2,7 @@ package net.allexs82.pvzmod.item;
 
 import net.allexs82.pvzmod.entity.plant.PVZPlantEntity;
 import net.allexs82.pvzmod.init.ModSounds;
+import net.allexs82.pvzmod.util.PVZModArrays;
 import net.allexs82.pvzmod.util.PlantType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Fertilizable;
@@ -41,7 +42,7 @@ public class SeedPacketItem extends SpawnEggItem {
         World world = context.getWorld();
         BlockPos blockPos = context.getBlockPos();
         BlockState blockState = world.getBlockState(blockPos);
-        if (!(blockState.getBlock() instanceof Fertilizable)) return ActionResult.PASS;
+        if (!PVZModArrays.getPlantableBlocks().contains(blockState.getBlock())) return ActionResult.PASS;
 
         PlayerEntity player = context.getPlayer();
         if (!world.isClient() && player != null){

@@ -8,6 +8,7 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.Monster;
+import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.MerchantEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
@@ -48,7 +49,8 @@ public class BasicZombieEntity extends PVZZombieEntity implements IAnimatable, M
 
         this.targetSelector.add(0, new ActiveTargetGoal<>(this, PVZPlantEntity.class, true));
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
-        this.targetSelector.add(2, new ActiveTargetGoal<>(this, MerchantEntity.class, true));
+        this.targetSelector.add(2, new ActiveTargetGoal<>(this, IronGolemEntity.class, true));
+        this.targetSelector.add(3, new ActiveTargetGoal<>(this, MerchantEntity.class, true));
     }
 
     @Override

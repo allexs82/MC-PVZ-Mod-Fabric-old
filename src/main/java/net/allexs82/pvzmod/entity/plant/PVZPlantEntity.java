@@ -1,6 +1,7 @@
 package net.allexs82.pvzmod.entity.plant;
 
 import net.allexs82.pvzmod.init.ModSounds;
+import net.allexs82.pvzmod.util.PlantType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.damage.DamageSource;
@@ -16,18 +17,25 @@ import java.util.List;
 
 public abstract class PVZPlantEntity extends MobEntity {
 
+    protected final PlantType plantType;
+
+
+    protected PVZPlantEntity(EntityType<? extends MobEntity> entityType, World world, PlantType plantType) {
+        super(entityType, world);
+        this.plantType = plantType;
+    }
 
     public PVZPlantEntity(EntityType<? extends MobEntity> entityType, World world) {
         super(entityType, world);
+        this.plantType = PlantType.DEFAULT;
+    }
+
+    public PlantType getPlantType() {
+        return plantType;
     }
 
     @Override
     public void addVelocity(double deltaX, double deltaY, double deltaZ) {}
-
-    @Override
-    public boolean hurtByWater() {
-        return true;
-    }
 
     @Override
     protected boolean shouldDropXp() {
@@ -52,8 +60,9 @@ public abstract class PVZPlantEntity extends MobEntity {
             int j;
             int i = this.world.getGameRules().getInt(GameRules.MAX_ENTITY_CRAMMING);
             for (Entity value : list) {
-                if (value instanceof PVZPlantEntity){
+                if (value instanceof PVZPlantEntity) {
                     i = 1;
+                    if (((PVZPlantEntity) value).plantType == PlantType.PROTECTING) i = 2;
                     break;
                 }
             }
@@ -72,11 +81,5 @@ public abstract class PVZPlantEntity extends MobEntity {
                 this.pushAway(entity);
             }
         }
-    }
-
-    @Nullable
-    @Override
-    protected SoundEvent getDeathSound() {
-        return ModSounds.GULP;
     }
 }

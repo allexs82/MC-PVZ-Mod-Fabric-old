@@ -12,7 +12,7 @@ public class ModSounds {
 
     public static SoundEvent ZOMBIE_CHOMP = registerSoundEvents("zombie_chomp");
 
-    public static SoundEvent GULP = registerSoundEvents("pvz_gulp");
+    public static SoundEvent GULP = registerSoundEvents("gulp");
 
     public static SoundEvent PROJECTILE_THROW = registerSoundEvents("projectile_throw");
 
