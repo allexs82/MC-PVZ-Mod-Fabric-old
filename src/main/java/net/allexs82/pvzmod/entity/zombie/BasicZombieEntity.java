@@ -2,7 +2,9 @@ package net.allexs82.pvzmod.entity.zombie;
 
 import net.allexs82.pvzmod.entity.ai.goal.BasicZombieAttackGoal;
 import net.allexs82.pvzmod.entity.plant.PVZPlantEntity;
+import net.allexs82.pvzmod.init.ModItems;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -11,6 +13,8 @@ import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.MerchantEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -56,6 +60,12 @@ public class BasicZombieEntity extends PVZZombieEntity implements IAnimatable, M
     @Override
     public void registerControllers(AnimationData data) {
         data.addAnimationController(new AnimationController<BasicZombieEntity>(this, "controller", 0, this::predicate));
+    }
+
+    @Override
+    protected void initEquipment(LocalDifficulty difficulty) {
+        this.equipStack(EquipmentSlot.HEAD, new ItemStack(ModItems.CONE));
+        super.initEquipment(difficulty);
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<BasicZombieEntity> event) {

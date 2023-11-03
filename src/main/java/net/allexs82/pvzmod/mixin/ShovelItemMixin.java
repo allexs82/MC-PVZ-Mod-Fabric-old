@@ -29,6 +29,7 @@ public abstract class ShovelItemMixin extends MiningToolItem {
         if (entity instanceof PVZPlantEntity && !world.isClient()){
             world.playSound(null, entity.getX(), entity.getY(), entity.getZ(), ModSounds.SHOVEL, SoundCategory.PLAYERS, 0.5f, 1.0f);
             entity.discard();
+            stack.damage(1, user, (p) -> p.sendToolBreakStatus(hand));
             return ActionResult.SUCCESS;
         }
         return super.useOnEntity(stack, user, entity, hand);

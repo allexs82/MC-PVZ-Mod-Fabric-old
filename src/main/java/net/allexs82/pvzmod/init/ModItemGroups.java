@@ -6,7 +6,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
-public class ModItemGroup {
+public class ModItemGroups {
     public static final ItemGroup ITEMS = FabricItemGroupBuilder.build(new Identifier(PVZMod.MOD_ID, "items"),
             () -> new ItemStack(ModItems.SUN));
 

@@ -35,22 +35,6 @@ public class PeaEntity extends ThrownItemEntity {
         super((EntityType<? extends ThrownItemEntity>)ModEntities.PEA, x, y, z, world);
     }
 
-    private ParticleEffect getParticleParameters() {
-        ItemStack itemStack = this.getItem();
-        return itemStack.isEmpty() ? ParticleTypes.ITEM_SNOWBALL : new ItemStackParticleEffect(ParticleTypes.ITEM, itemStack);
-    }
-
-    @Override
-    public void handleStatus(byte status) {
-        if (status == 3) {
-            ParticleEffect particleEffect = this.getParticleParameters();
-            for (int i = 0; i < 8; ++i) {
-                this.world.addParticle(particleEffect, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
-            }
-        }
-    }
-
-
     @Override
     protected Item getDefaultItem() {
         return ModItems.PEA_ITEM;
@@ -61,7 +45,7 @@ public class PeaEntity extends ThrownItemEntity {
         super.onEntityHit(entityHitResult);
         Entity entity = entityHitResult.getEntity();
         int damage = 2;
-        if (entityHitResult.getEntity() instanceof PVZPlantEntity || entityHitResult.getEntity() instanceof PlayerEntity) damage = 0;
+        if (entityHitResult.getEntity() instanceof PVZPlantEntity || entityHitResult.getEntity() instanceof PlayerEntity || this.getOwner() instanceof PlayerEntity) damage = 0;
         entity.damage(DamageSource.thrownProjectile(this, this.getOwner()), damage);
     }
 
