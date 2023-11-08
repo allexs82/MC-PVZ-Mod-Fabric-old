@@ -2,7 +2,9 @@ package net.allexs82.pvzmod.init;
 
 import net.allexs82.pvzmod.PVZMod;
 import net.allexs82.pvzmod.entity.plant.PeashooterEntity;
+import net.allexs82.pvzmod.entity.projectile.thrown.PVZProjectileEntity;
 import net.allexs82.pvzmod.entity.projectile.thrown.PeaEntity;
+import net.allexs82.pvzmod.entity.projectile.thrown.SnowPeaEntity;
 import net.allexs82.pvzmod.entity.zombie.BasicZombieEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
@@ -23,6 +25,12 @@ public class ModEntities {
                     .dimensions(EntityDimensions.fixed(0.45f, 0.75f)).build());
     public static final EntityType<PeaEntity> PEA = Registry.register(Registry.ENTITY_TYPE, new Identifier(PVZMod.MOD_ID, "pea"),
             FabricEntityTypeBuilder.<PeaEntity>create(SpawnGroup.MISC, PeaEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
+                    .trackRangeBlocks(4).trackedUpdateRate(10)
+                    .build());
+
+    public static final EntityType<SnowPeaEntity> SNOW_PEA = Registry.register(Registry.ENTITY_TYPE, new Identifier(PVZMod.MOD_ID, "snow_pea"),
+            FabricEntityTypeBuilder.<SnowPeaEntity>create(SpawnGroup.MISC, SnowPeaEntity::new)
                     .dimensions(EntityDimensions.fixed(0.25f, 0.25f))
                     .trackRangeBlocks(4).trackedUpdateRate(10)
                     .build());

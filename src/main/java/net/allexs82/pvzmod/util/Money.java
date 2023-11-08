@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 
 public abstract class Money {
 
-    private static final String NBT_KEY = "money";
+    public static final String NBT_KEY = "money";
 
     public static void addMoney(@NotNull PlayerEntity player, @Positive int moneyToAdd) {
         IPlayerEntityDataSaver playerEntityDataSaver = (IPlayerEntityDataSaver) player;

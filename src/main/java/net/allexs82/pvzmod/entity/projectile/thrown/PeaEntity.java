@@ -16,15 +16,16 @@ import net.minecraft.particle.ItemStackParticleEffect;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
 
-public class PeaEntity extends ThrownItemEntity {
+public class PeaEntity extends PVZProjectileEntity {
 
     public PeaEntity(EntityType<? extends PeaEntity> entityType, World world) {
-        super((EntityType<? extends ThrownItemEntity>)entityType, world);
+        super((EntityType<? extends PeaEntity>) entityType, world);
     }
 
     public PeaEntity(World world, LivingEntity owner) {
@@ -41,25 +42,12 @@ public class PeaEntity extends ThrownItemEntity {
     }
 
     @Override
-    protected void onEntityHit(EntityHitResult entityHitResult) {
-        super.onEntityHit(entityHitResult);
-        Entity entity = entityHitResult.getEntity();
-        int damage = 2;
-        if (entityHitResult.getEntity() instanceof PVZPlantEntity || entityHitResult.getEntity() instanceof PlayerEntity || this.getOwner() instanceof PlayerEntity) damage = 0;
-        entity.damage(DamageSource.thrownProjectile(this, this.getOwner()), damage);
+    protected SoundEvent getHitSound() {
+        return ModSounds.ZOMBIE_SPLAT;
     }
 
     @Override
-    protected void onCollision(HitResult hitResult) {
-        super.onCollision(hitResult);
-        if (hitResult.getType() == HitResult.Type.ENTITY) {
-            EntityHitResult entityHitResult = (EntityHitResult) hitResult;
-            Entity entity = entityHitResult.getEntity();
-            world.playSound(null, entity.getX(), entity.getY(), entity.getZ(), ModSounds.ZOMBIE_SPLAT, SoundCategory.NEUTRAL, 0.5f, 1.0f);
-            if (entity instanceof PVZPlantEntity || entity instanceof PlayerEntity) return;
-        }
-        if (!this.world.isClient) {
-            this.discard();
-        }
+    protected int getDamage() {
+        return 2;
     }
 }

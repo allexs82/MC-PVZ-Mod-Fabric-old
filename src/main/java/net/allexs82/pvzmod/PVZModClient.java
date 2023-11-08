@@ -16,6 +16,7 @@ public class PVZModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.BASIC_ZOMBIE, BasicZombieRenderer::new);
         EntityRendererRegistry.register(ModEntities.PEASHOOTER, PeashooterRenderer::new);
         EntityRendererRegistry.register(ModEntities.PEA, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.SNOW_PEA, FlyingItemEntityRenderer::new);
         GeoArmorRenderer.registerArmorRenderer(new ConeArmorRenderer(), ModItems.CONE);
     }
 }
