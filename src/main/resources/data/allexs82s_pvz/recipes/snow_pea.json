@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#O",
+        "O#"
+    ],
+    "key": {
+        "#": {
+            "item": "allexs82s_pvz:pea_item"
+        },
+        "O": {
+            "item": "minecraft:snowball"
+        }
+    },
+    "result": {
+        "item": "allexs82s_pvz:snow_pea_item",
+        "count": 2
+    }
+}

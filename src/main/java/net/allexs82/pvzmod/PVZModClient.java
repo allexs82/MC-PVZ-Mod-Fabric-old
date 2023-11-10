@@ -2,6 +2,7 @@ package net.allexs82.pvzmod;
 
 import net.allexs82.pvzmod.entity.client.armor.ConeArmorRenderer;
 import net.allexs82.pvzmod.entity.client.plant.PeashooterRenderer;
+import net.allexs82.pvzmod.entity.client.plant.SunflowerRenderer;
 import net.allexs82.pvzmod.init.ModEntities;
 import net.allexs82.pvzmod.entity.client.zombie.BasicZombieRenderer;
 import net.allexs82.pvzmod.init.ModItems;
@@ -15,6 +16,7 @@ public class PVZModClient implements ClientModInitializer {
     public void onInitializeClient() {
         EntityRendererRegistry.register(ModEntities.BASIC_ZOMBIE, BasicZombieRenderer::new);
         EntityRendererRegistry.register(ModEntities.PEASHOOTER, PeashooterRenderer::new);
+        EntityRendererRegistry.register(ModEntities.SUNFLOWER, SunflowerRenderer::new);
         EntityRendererRegistry.register(ModEntities.PEA, FlyingItemEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.SNOW_PEA, FlyingItemEntityRenderer::new);
         GeoArmorRenderer.registerArmorRenderer(new ConeArmorRenderer(), ModItems.CONE);

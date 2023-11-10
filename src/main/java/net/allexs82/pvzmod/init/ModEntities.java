@@ -2,6 +2,7 @@ package net.allexs82.pvzmod.init;
 
 import net.allexs82.pvzmod.PVZMod;
 import net.allexs82.pvzmod.entity.plant.PeashooterEntity;
+import net.allexs82.pvzmod.entity.plant.SunflowerEntity;
 import net.allexs82.pvzmod.entity.projectile.thrown.PVZProjectileEntity;
 import net.allexs82.pvzmod.entity.projectile.thrown.PeaEntity;
 import net.allexs82.pvzmod.entity.projectile.thrown.SnowPeaEntity;
@@ -23,6 +24,12 @@ public class ModEntities {
             Registry.ENTITY_TYPE, new Identifier(PVZMod.MOD_ID, "peashooter"),
             FabricEntityTypeBuilder.create(SpawnGroup.MISC, PeashooterEntity::new)
                     .dimensions(EntityDimensions.fixed(0.45f, 0.75f)).build());
+
+    public static final EntityType<SunflowerEntity> SUNFLOWER = Registry.register(
+            Registry.ENTITY_TYPE, new Identifier(PVZMod.MOD_ID, "sunflower"),
+            FabricEntityTypeBuilder.create(SpawnGroup.MISC, SunflowerEntity::new)
+                    .dimensions(EntityDimensions.fixed(0.45f, 0.75f)).build());
+
     public static final EntityType<PeaEntity> PEA = Registry.register(Registry.ENTITY_TYPE, new Identifier(PVZMod.MOD_ID, "pea"),
             FabricEntityTypeBuilder.<PeaEntity>create(SpawnGroup.MISC, PeaEntity::new)
                     .dimensions(EntityDimensions.fixed(0.25f, 0.25f))

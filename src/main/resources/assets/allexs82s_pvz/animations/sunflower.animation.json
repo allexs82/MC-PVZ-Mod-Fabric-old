@@ -1,0 +1,18 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.sunflower.idle": {
+			"loop": true,
+			"bones": {
+				"master_head": {
+					"rotation": {
+						"vector": [0, 0, 47.5]
+					},
+					"position": {
+						"vector": [-3, -2, 0]
+					}
+				}
+			}
+		}
+	}
+}
