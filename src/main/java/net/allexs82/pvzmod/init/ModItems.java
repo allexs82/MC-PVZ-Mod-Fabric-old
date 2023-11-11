@@ -39,6 +39,8 @@ public class ModItems {
     public static final Item PEASHOOTER_SEED_PACKET = registerItem("peashooter_seed_packet",
             new SeedPacketItem(ModEntities.PEASHOOTER, new FabricItemSettings().group(ModItemGroups.SEED_PACKETS)));
 
+    public static final Item SUNFLOWER_SEED_PACKET = registerItem("sunflower_seed_packet",
+            new SeedPacketItem(ModEntities.SUNFLOWER, new FabricItemSettings().group(ModItemGroups.SEED_PACKETS)));
     public static final Item CONE = registerItem("cone",
             new ConeArmorItem(ModArmorMaterials.CONE, EquipmentSlot.HEAD, new FabricItemSettings().group(ModItemGroups.ITEMS)));
 

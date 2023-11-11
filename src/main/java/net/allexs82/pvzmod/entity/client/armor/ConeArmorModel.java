@@ -2,9 +2,12 @@ package net.allexs82.pvzmod.entity.client.armor;
 
 import net.allexs82.pvzmod.PVZMod;
 import net.allexs82.pvzmod.item.ConeArmorItem;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.util.Identifier;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
+@Environment(EnvType.CLIENT)
 public class ConeArmorModel extends AnimatedGeoModel<ConeArmorItem> {
     @Override
     public Identifier getModelLocation(ConeArmorItem object) {

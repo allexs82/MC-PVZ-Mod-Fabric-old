@@ -1,6 +1,5 @@
 package net.allexs82.pvzmod.entity.plant;
 
-import net.allexs82.pvzmod.init.ModSounds;
 import net.allexs82.pvzmod.util.PlantType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -8,16 +7,24 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.predicate.entity.EntityPredicates;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
+import software.bernie.geckolib3.core.IAnimatable;
+import software.bernie.geckolib3.core.PlayState;
+import software.bernie.geckolib3.core.builder.AnimationBuilder;
+import software.bernie.geckolib3.core.builder.ILoopType;
+import software.bernie.geckolib3.core.controller.AnimationController;
+import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
+import software.bernie.geckolib3.core.manager.AnimationData;
 
 import java.util.List;
 
-public abstract class PVZPlantEntity extends MobEntity {
-
+public abstract class PVZPlantEntity<T extends IAnimatable> extends MobEntity implements IAnimatable {
     protected final PlantType plantType;
+
+    protected String getIdleAnimName(){
+        return "";
+    }
 
 
     protected PVZPlantEntity(EntityType<? extends MobEntity> entityType, World world, PlantType plantType) {
@@ -28,6 +35,17 @@ public abstract class PVZPlantEntity extends MobEntity {
     public PVZPlantEntity(EntityType<? extends MobEntity> entityType, World world) {
         super(entityType, world);
         this.plantType = PlantType.DEFAULT;
+    }
+
+    protected  <E extends IAnimatable> PlayState predicate(AnimationEvent<T> event) {
+        event.getController().setAnimation(new AnimationBuilder().addAnimation(getIdleAnimName(), ILoopType.EDefaultLoopTypes.LOOP));
+        return PlayState.CONTINUE;
+    }
+
+    @Override
+    public void registerControllers(AnimationData animationData) {
+        animationData.addAnimationController(new AnimationController<T>((T) this,
+                "controller", 0, this::predicate));
     }
 
     public PlantType getPlantType() {

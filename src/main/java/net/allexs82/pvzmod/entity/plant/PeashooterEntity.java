@@ -23,9 +23,12 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
-public class PeashooterEntity extends PVZPlantEntity implements IAnimatable, RangedAttackMob {
+public class PeashooterEntity extends PVZPlantEntity<PeashooterEntity> implements IAnimatable, RangedAttackMob {
 
-    private static final String idleAnimName = "animation.peashooter.idle";
+    @Override
+    protected String getIdleAnimName(){
+       return "animation.peashooter.idle";
+    }
 
     private AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
@@ -61,18 +64,6 @@ public class PeashooterEntity extends PVZPlantEntity implements IAnimatable, Ran
         entityNavigation.setRangeMultiplier(0);
         return entityNavigation;
     }
-
-    @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController<PeashooterEntity>(this,
-                "controller", 0, this::predicate));
-    }
-
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<PeashooterEntity> event) {
-        event.getController().setAnimation(new AnimationBuilder().addAnimation(idleAnimName, ILoopType.EDefaultLoopTypes.LOOP));
-        return PlayState.CONTINUE;
-    }
-
 
     @Override
     public AnimationFactory getFactory() {
