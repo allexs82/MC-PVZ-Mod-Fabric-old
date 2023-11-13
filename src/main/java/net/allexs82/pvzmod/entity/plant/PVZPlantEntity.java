@@ -1,6 +1,6 @@
 package net.allexs82.pvzmod.entity.plant;
 
-import net.allexs82.pvzmod.util.PlantType;
+import net.allexs82.pvzmod.util.EPlantType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.damage.DamageSource;
@@ -19,22 +19,22 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 
 import java.util.List;
 
-public abstract class PVZPlantEntity<T extends IAnimatable> extends MobEntity implements IAnimatable {
-    protected final PlantType plantType;
+public abstract class PVZPlantEntity<T extends PVZPlantEntity<?> & IAnimatable> extends MobEntity implements IAnimatable {
+    protected final EPlantType PlantType;
 
     protected String getIdleAnimName(){
         return "";
     }
 
 
-    protected PVZPlantEntity(EntityType<? extends MobEntity> entityType, World world, PlantType plantType) {
+    public PVZPlantEntity(EntityType<? extends MobEntity> entityType, World world, EPlantType EPlantType) {
         super(entityType, world);
-        this.plantType = plantType;
+        this.PlantType = EPlantType;
     }
 
     public PVZPlantEntity(EntityType<? extends MobEntity> entityType, World world) {
         super(entityType, world);
-        this.plantType = PlantType.DEFAULT;
+        this.PlantType = EPlantType.DEFAULT;
     }
 
     protected  <E extends IAnimatable> PlayState predicate(AnimationEvent<T> event) {
@@ -48,8 +48,8 @@ public abstract class PVZPlantEntity<T extends IAnimatable> extends MobEntity im
                 "controller", 0, this::predicate));
     }
 
-    public PlantType getPlantType() {
-        return plantType;
+    public EPlantType getPlantType() {
+        return PlantType;
     }
 
     @Override
@@ -80,7 +80,7 @@ public abstract class PVZPlantEntity<T extends IAnimatable> extends MobEntity im
             for (Entity value : list) {
                 if (value instanceof PVZPlantEntity) {
                     i = 1;
-                    if (((PVZPlantEntity) value).plantType == PlantType.PROTECTING) i = 2;
+                    if (((PVZPlantEntity<?>) value).PlantType == EPlantType.PROTECTING) i = 2;
                     break;
                 }
             }

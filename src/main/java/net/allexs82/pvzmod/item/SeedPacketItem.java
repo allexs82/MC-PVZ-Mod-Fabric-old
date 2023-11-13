@@ -3,7 +3,7 @@ package net.allexs82.pvzmod.item;
 import net.allexs82.pvzmod.entity.plant.PVZPlantEntity;
 import net.allexs82.pvzmod.init.ModSounds;
 import net.allexs82.pvzmod.util.PVZModArrays;
-import net.allexs82.pvzmod.util.PlantType;
+import net.allexs82.pvzmod.util.EPlantType;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -21,16 +21,16 @@ public class SeedPacketItem extends SpawnEggItem {
 
     private static final int WHITE = 0xFFFFFF;
 
-    private final PlantType plantType;
+    private final EPlantType EPlantType;
 
     public SeedPacketItem(EntityType<? extends PVZPlantEntity> type, Settings settings) {
         super(type, WHITE, WHITE, settings);
-        this.plantType = PlantType.DEFAULT;
+        this.EPlantType = EPlantType.DEFAULT;
     }
 
-    public SeedPacketItem(EntityType<? extends PVZPlantEntity> type, Settings settings, PlantType plantType) {
+    public SeedPacketItem(EntityType<? extends PVZPlantEntity> type, Settings settings, EPlantType EPlantType) {
         super(type, WHITE, WHITE, settings);
-        this.plantType = plantType;
+        this.EPlantType = EPlantType;
     }
 
 
@@ -52,7 +52,7 @@ public class SeedPacketItem extends SpawnEggItem {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if (plantType != PlantType.AQUATIC) return TypedActionResult.pass(user.getStackInHand(hand));
+        if (EPlantType != EPlantType.AQUATIC) return TypedActionResult.pass(user.getStackInHand(hand));
         if (!world.isClient()){
             world.playSound(null, user.getX(), user.getY(), user.getZ(), ModSounds.PLANT_WATER,
                     SoundCategory.NEUTRAL, 1.0f, 1.0f);

@@ -1,6 +1,6 @@
 package net.allexs82.pvzmod.util;
 
-public enum PlantType {
+public enum EPlantType {
 
     DEFAULT,
     AQUATIC,

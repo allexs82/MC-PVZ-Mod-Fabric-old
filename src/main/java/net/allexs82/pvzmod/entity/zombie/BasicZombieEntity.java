@@ -1,8 +1,10 @@
 package net.allexs82.pvzmod.entity.zombie;
 
+import net.allexs82.pvzmod.PVZMod;
 import net.allexs82.pvzmod.entity.ai.goal.BasicZombieAttackGoal;
 import net.allexs82.pvzmod.entity.plant.PVZPlantEntity;
 import net.allexs82.pvzmod.init.ModItems;
+import net.allexs82.pvzmod.util.EAnimType;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.ai.goal.*;
@@ -27,12 +29,9 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
 @SuppressWarnings({"SameReturnValue"})
-public class BasicZombieEntity extends PVZZombieEntity implements IAnimatable, Monster {
+public class BasicZombieEntity extends PVZZombieEntity<BasicZombieEntity> implements IAnimatable, Monster {
 
-    private static final String walkAnimName = "animation.basic_zombie.walk";
-    private static final String idleAnimName = "animation.basic_zombie.idle";
-
-    private AnimationFactory factory = GeckoLibUtil.createFactory(this);
+    private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
     public BasicZombieEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -58,28 +57,31 @@ public class BasicZombieEntity extends PVZZombieEntity implements IAnimatable, M
     }
 
     @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController<BasicZombieEntity>(this, "controller", 0, this::predicate));
-    }
-
-    @Override
     protected void initEquipment(LocalDifficulty difficulty) {
         this.equipStack(EquipmentSlot.HEAD, new ItemStack(ModItems.CONE));
         super.initEquipment(difficulty);
     }
-
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<BasicZombieEntity> event) {
-        if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation(walkAnimName, ILoopType.EDefaultLoopTypes.LOOP));
-            return PlayState.CONTINUE;
-        }
-        event.getController().setAnimation(new AnimationBuilder().addAnimation(idleAnimName, ILoopType.EDefaultLoopTypes.LOOP));
-        return PlayState.CONTINUE;
-    }
-
-
     @Override
     public AnimationFactory getFactory() {
         return factory;
+    }
+
+    @Override
+    protected String getAnimName(EAnimType AnimType) {
+        switch (AnimType){
+            case idle -> {
+                return "animation.basic_zombie.idle";
+            }
+            case walk -> {
+                return "animation.basic_zombie.walk";
+            }
+            case attack -> {
+                return "animation.basic_zombie.attack";
+            }
+            default -> {
+                PVZMod.LOGGER.error("[BasicZombieEntity] [getAnimName]: can't find anim of type: " + AnimType.name());
+                return "null";
+            }
+        }
     }
 }
