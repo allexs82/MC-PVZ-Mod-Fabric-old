@@ -21,16 +21,16 @@ public class SeedPacketItem extends SpawnEggItem {
 
     private static final int WHITE = 0xFFFFFF;
 
-    private final EPlantType EPlantType;
+    private final EPlantType PlantType;
 
     public SeedPacketItem(EntityType<? extends PVZPlantEntity> type, Settings settings) {
         super(type, WHITE, WHITE, settings);
-        this.EPlantType = EPlantType.DEFAULT;
+        this.PlantType = EPlantType.DEFAULT;
     }
 
     public SeedPacketItem(EntityType<? extends PVZPlantEntity> type, Settings settings, EPlantType EPlantType) {
         super(type, WHITE, WHITE, settings);
-        this.EPlantType = EPlantType;
+        this.PlantType = EPlantType;
     }
 
 
@@ -52,7 +52,7 @@ public class SeedPacketItem extends SpawnEggItem {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if (EPlantType != EPlantType.AQUATIC) return TypedActionResult.pass(user.getStackInHand(hand));
+        if (PlantType != EPlantType.AQUATIC) return TypedActionResult.pass(user.getStackInHand(hand));
         if (!world.isClient()){
             world.playSound(null, user.getX(), user.getY(), user.getZ(), ModSounds.PLANT_WATER,
                     SoundCategory.NEUTRAL, 1.0f, 1.0f);

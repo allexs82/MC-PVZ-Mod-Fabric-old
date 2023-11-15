@@ -44,7 +44,7 @@ public abstract class PVZPlantEntity<T extends PVZPlantEntity<?> & IAnimatable> 
 
     @Override
     public void registerControllers(AnimationData animationData) {
-        animationData.addAnimationController(new AnimationController<T>((T) this,
+        animationData.addAnimationController(new AnimationController<>((T) this,
                 "controller", 0, this::predicate));
     }
 
