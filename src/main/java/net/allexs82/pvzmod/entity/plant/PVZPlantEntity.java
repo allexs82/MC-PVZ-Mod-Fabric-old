@@ -19,12 +19,10 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 
 import java.util.List;
 
-public abstract class PVZPlantEntity<T extends PVZPlantEntity<?> & IAnimatable> extends MobEntity implements IAnimatable {
+public abstract class PVZPlantEntity<E extends PVZPlantEntity<?> & IAnimatable> extends MobEntity implements IAnimatable {
     protected final EPlantType PlantType;
 
-    protected String getIdleAnimName(){
-        return "";
-    }
+    protected abstract String getIdleAnimName();
 
 
     public PVZPlantEntity(EntityType<? extends MobEntity> entityType, World world, EPlantType EPlantType) {
@@ -37,14 +35,14 @@ public abstract class PVZPlantEntity<T extends PVZPlantEntity<?> & IAnimatable> 
         this.PlantType = EPlantType.DEFAULT;
     }
 
-    protected  <E extends IAnimatable> PlayState predicate(AnimationEvent<T> event) {
+    protected  <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         event.getController().setAnimation(new AnimationBuilder().addAnimation(getIdleAnimName(), ILoopType.EDefaultLoopTypes.LOOP));
         return PlayState.CONTINUE;
     }
 
     @Override
     public void registerControllers(AnimationData animationData) {
-        animationData.addAnimationController(new AnimationController<>((T) this,
+        animationData.addAnimationController(new AnimationController<>((E) this,
                 "controller", 0, this::predicate));
     }
 

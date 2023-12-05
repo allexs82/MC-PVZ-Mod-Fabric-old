@@ -23,7 +23,7 @@ import software.bernie.geckolib3.core.manager.AnimationData;
 
 import javax.annotation.Nullable;
 
-public abstract class PVZZombieEntity<T extends PVZZombieEntity<?> & IAnimatable> extends HostileEntity implements Monster, IAnimatable {
+public abstract class PVZZombieEntity<E extends PVZZombieEntity<?> & IAnimatable> extends HostileEntity implements Monster, IAnimatable {
     public PVZZombieEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -64,10 +64,10 @@ public abstract class PVZZombieEntity<T extends PVZZombieEntity<?> & IAnimatable
     }
     @Override
     public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController<T>((T)this, "controller", 0, this::predicate));
+        data.addAnimationController(new AnimationController<E>((E)this, "controller", 0, this::predicate));
     }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<T> event) {
+    private <T extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation(getAnimName(EAnimType.walk), ILoopType.EDefaultLoopTypes.LOOP));
             return PlayState.CONTINUE;
@@ -76,8 +76,6 @@ public abstract class PVZZombieEntity<T extends PVZZombieEntity<?> & IAnimatable
         return PlayState.CONTINUE;
     }
 
-    protected String getAnimName(EAnimType AnimType) {
-        return "null";
-    }
+    protected abstract String getAnimName(EAnimType AnimType);
 
 }

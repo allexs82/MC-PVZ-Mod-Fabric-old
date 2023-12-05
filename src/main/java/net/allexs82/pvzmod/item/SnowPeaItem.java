@@ -1,6 +1,5 @@
 package net.allexs82.pvzmod.item;
 
-import net.allexs82.pvzmod.entity.projectile.thrown.PeaEntity;
 import net.allexs82.pvzmod.entity.projectile.thrown.SnowPeaEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

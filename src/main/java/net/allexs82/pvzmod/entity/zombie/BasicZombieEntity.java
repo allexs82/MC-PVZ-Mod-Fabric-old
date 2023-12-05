@@ -3,10 +3,8 @@ package net.allexs82.pvzmod.entity.zombie;
 import net.allexs82.pvzmod.PVZMod;
 import net.allexs82.pvzmod.entity.ai.goal.BasicZombieAttackGoal;
 import net.allexs82.pvzmod.entity.plant.PVZPlantEntity;
-import net.allexs82.pvzmod.init.ModItems;
 import net.allexs82.pvzmod.util.EAnimType;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -16,8 +14,6 @@ import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.MerchantEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.World;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
@@ -50,12 +46,6 @@ public class BasicZombieEntity extends PVZZombieEntity<BasicZombieEntity> implem
         this.targetSelector.add(2, new ActiveTargetGoal<>(this, IronGolemEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, MerchantEntity.class, true));
     }
-
-    @Override
-    protected void initEquipment(LocalDifficulty difficulty) {
-        this.equipStack(EquipmentSlot.HEAD, new ItemStack(ModItems.CONE));
-        super.initEquipment(difficulty);
-    }
     @Override
     public AnimationFactory getFactory() {
         return factory;
@@ -75,7 +65,7 @@ public class BasicZombieEntity extends PVZZombieEntity<BasicZombieEntity> implem
             }
             default -> {
                 PVZMod.LOGGER.error("[BasicZombieEntity] [getAnimName]: can't find anim of type: " + AnimType.name());
-                return "null";
+                return null;
             }
         }
     }

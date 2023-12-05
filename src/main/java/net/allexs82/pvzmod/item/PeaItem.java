@@ -2,7 +2,6 @@ package net.allexs82.pvzmod.item;
 
 import net.allexs82.pvzmod.entity.projectile.thrown.PeaEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.thrown.SnowballEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;

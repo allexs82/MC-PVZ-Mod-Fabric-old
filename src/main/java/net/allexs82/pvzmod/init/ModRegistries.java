@@ -11,6 +11,7 @@ public class ModRegistries {
     }
 
     private static void registerAttributes() {
+        //noinspection DataFlowIssue
         FabricDefaultAttributeRegistry.register(ModEntities.BASIC_ZOMBIE, BasicZombieEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.PEASHOOTER, PeashooterEntity.setAttributes());
         FabricDefaultAttributeRegistry.register(ModEntities.SUNFLOWER, SunflowerEntity.setAttributes());

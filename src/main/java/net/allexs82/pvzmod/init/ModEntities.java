@@ -3,7 +3,6 @@ package net.allexs82.pvzmod.init;
 import net.allexs82.pvzmod.PVZMod;
 import net.allexs82.pvzmod.entity.plant.PeashooterEntity;
 import net.allexs82.pvzmod.entity.plant.SunflowerEntity;
-import net.allexs82.pvzmod.entity.projectile.thrown.PVZProjectileEntity;
 import net.allexs82.pvzmod.entity.projectile.thrown.PeaEntity;
 import net.allexs82.pvzmod.entity.projectile.thrown.SnowPeaEntity;
 import net.allexs82.pvzmod.entity.zombie.BasicZombieEntity;

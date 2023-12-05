@@ -1,9 +1,7 @@
 package net.allexs82.pvzmod.entity.client.plant;
 
 import net.allexs82.pvzmod.PVZMod;
-import net.allexs82.pvzmod.entity.client.zombie.BasicZombieModel;
 import net.allexs82.pvzmod.entity.plant.PeashooterEntity;
-import net.allexs82.pvzmod.entity.zombie.BasicZombieEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.EntityRendererFactory;
