@@ -6,7 +6,7 @@ import net.allexs82.pvzmod.entity.zombie.BasicZombieEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 
 public class ModRegistries {
-    public static void registerModStuffs(){
+    public static void registerModStuffs() {
         registerAttributes();
     }
 

@@ -10,7 +10,7 @@ public abstract class PVZModArrays {
 
     private static final List<Block> PLANTABLE_BLOCKS;
 
-    public static boolean canPlantPlant(Block block){
+    public static boolean canPlantPlant(Block block) {
         return PLANTABLE_BLOCKS.contains(block);
     }
 

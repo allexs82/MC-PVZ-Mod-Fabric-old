@@ -7,22 +7,12 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.world.World;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
 
-public class PeashooterEntity extends AbstractRangedAttackPlant<PeashooterEntity> implements IAnimatable {
+public class PeashooterEntity extends AbstractRangedAttackPlant<PeashooterEntity> {
 
     @Override
-    protected String getIdleAnimName(){
-       return "animation.peashooter.idle";
-    }
-
-    private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
-
-    @Override
-    public AnimationFactory getFactory() {
-        return factory;
+    protected String getIdleAnimName() {
+        return "animation.peashooter.idle";
     }
 
     public PeashooterEntity(EntityType<? extends MobEntity> entityType, World world) {

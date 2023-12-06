@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConeArmorItem extends ArmorItem implements IAnimatable {
-    private AnimationFactory factory = GeckoLibUtil.createFactory(this);
+    private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
     public ConeArmorItem(ArmorMaterial materialIn, EquipmentSlot slot, Item.Settings builder) {
         super(materialIn, slot, builder);

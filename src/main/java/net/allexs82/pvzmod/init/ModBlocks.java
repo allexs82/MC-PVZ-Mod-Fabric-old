@@ -21,6 +21,7 @@ public class ModBlocks {
         return Registry.register(Registry.ITEM, new Identifier(PVZMod.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings().group(itemGroup)));
     }
+
     public static void registerModBlocks() {
         PVZMod.LOGGER.info("Registering blocks for " + PVZMod.MOD_ID);
     }

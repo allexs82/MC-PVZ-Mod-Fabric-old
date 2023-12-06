@@ -8,11 +8,8 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.World;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
 
-public class SunflowerEntity extends PVZPlantEntity<SunflowerEntity> implements IAnimatable {
+public class SunflowerEntity extends PVZPlantEntity<SunflowerEntity> {
 
     @Override
     protected String getIdleAnimName() {
@@ -23,7 +20,6 @@ public class SunflowerEntity extends PVZPlantEntity<SunflowerEntity> implements 
 
     private static final String NBT_KEY = "sunDropTime";
 
-    private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
     public SunflowerEntity(EntityType<? extends MobEntity> entityType, World world) {
         super(entityType, world);
         sunDropTime = this.getRandom().nextInt(3600) + 3600;
@@ -63,13 +59,9 @@ public class SunflowerEntity extends PVZPlantEntity<SunflowerEntity> implements 
     @Override
     public void readCustomDataFromNbt(NbtCompound nbt) {
         super.readCustomDataFromNbt(nbt);
-        if (nbt.contains(NBT_KEY)){
+        if (nbt.contains(NBT_KEY)) {
             sunDropTime = nbt.getInt(NBT_KEY);
         }
     }
 
-    @Override
-    public AnimationFactory getFactory() {
-        return factory;
-    }
 }

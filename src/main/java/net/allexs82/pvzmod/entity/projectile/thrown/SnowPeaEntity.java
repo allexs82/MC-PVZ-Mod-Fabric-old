@@ -18,12 +18,13 @@ public class SnowPeaEntity extends PVZProjectileEntity {
     }
 
     public SnowPeaEntity(World world, LivingEntity owner) {
-        super((EntityType<? extends ThrownItemEntity>)ModEntities.SNOW_PEA, owner, world);
+        super((EntityType<? extends ThrownItemEntity>) ModEntities.SNOW_PEA, owner, world);
     }
 
     public SnowPeaEntity(World world, double x, double y, double z) {
-        super((EntityType<? extends ThrownItemEntity>)ModEntities.SNOW_PEA, x, y, z, world);
+        super((EntityType<? extends ThrownItemEntity>) ModEntities.SNOW_PEA, x, y, z, world);
     }
+
     protected Item getDefaultItem() {
         return ModItems.SNOW_PEA_ITEM;
     }

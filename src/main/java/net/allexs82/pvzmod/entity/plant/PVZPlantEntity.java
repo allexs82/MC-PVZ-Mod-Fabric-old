@@ -16,26 +16,38 @@ import software.bernie.geckolib3.core.builder.ILoopType;
 import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
+import software.bernie.geckolib3.core.manager.AnimationFactory;
+import software.bernie.geckolib3.util.GeckoLibUtil;
 
 import java.util.List;
 
-public abstract class PVZPlantEntity<E extends PVZPlantEntity<?> & IAnimatable> extends MobEntity implements IAnimatable {
-    protected final EPlantType PlantType;
-
-    protected abstract String getIdleAnimName();
-
+public abstract class PVZPlantEntity<E extends PVZPlantEntity<?>> extends MobEntity implements IAnimatable {
 
     public PVZPlantEntity(EntityType<? extends MobEntity> entityType, World world, EPlantType EPlantType) {
         super(entityType, world);
+        factory = GeckoLibUtil.createFactory(this);
         this.PlantType = EPlantType;
     }
 
     public PVZPlantEntity(EntityType<? extends MobEntity> entityType, World world) {
         super(entityType, world);
+        factory = GeckoLibUtil.createFactory(this);
         this.PlantType = EPlantType.DEFAULT;
     }
 
-    protected  <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+
+    protected final EPlantType PlantType;
+
+    protected abstract String getIdleAnimName();
+
+    protected final AnimationFactory factory;
+
+    @Override
+    public AnimationFactory getFactory() {
+        return factory;
+    }
+
+    protected PlayState predicate(AnimationEvent<E> event) {
         event.getController().setAnimation(new AnimationBuilder().addAnimation(getIdleAnimName(), ILoopType.EDefaultLoopTypes.LOOP));
         return PlayState.CONTINUE;
     }
@@ -51,7 +63,8 @@ public abstract class PVZPlantEntity<E extends PVZPlantEntity<?> & IAnimatable> 
     }
 
     @Override
-    public void addVelocity(double deltaX, double deltaY, double deltaZ) {}
+    public void addVelocity(double deltaX, double deltaY, double deltaZ) {
+    }
 
     @Override
     protected boolean shouldDropXp() {
@@ -78,7 +91,7 @@ public abstract class PVZPlantEntity<E extends PVZPlantEntity<?> & IAnimatable> 
             for (Entity value : list) {
                 if (value instanceof PVZPlantEntity) {
                     i = 1;
-                    if (((PVZPlantEntity<?>) value).PlantType == EPlantType.PROTECTING) i = 2;
+                    if (((PVZPlantEntity<?>) value).getPlantType() == EPlantType.PROTECTING) i = 2;
                     break;
                 }
             }

@@ -5,7 +5,6 @@
 
 package net.allexs82.pvzmod.init;
 
-import java.util.function.Supplier;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemConvertible;
@@ -14,6 +13,8 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Lazy;
+
+import java.util.function.Supplier;
 
 public enum ModArmorMaterials implements ArmorMaterial {
 
@@ -59,7 +60,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
     }
 
     public Ingredient getRepairIngredient() {
-        return (Ingredient)this.repairIngredientSupplier.get();
+        return (Ingredient) this.repairIngredientSupplier.get();
     }
 
     public String getName() {

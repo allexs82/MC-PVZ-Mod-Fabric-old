@@ -15,6 +15,7 @@ import org.checkerframework.checker.index.qual.Positive;
 public class MoneyItem extends Item {
 
     private final int moneyValue;
+
     public MoneyItem(Settings settings, @Positive int moneyValue) {
         super(settings);
         this.moneyValue = moneyValue;

@@ -10,19 +10,13 @@ import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.passive.MerchantEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
 
 @SuppressWarnings({"SameReturnValue"})
-public class BasicZombieEntity extends PVZZombieEntity<BasicZombieEntity> implements IAnimatable, Monster {
-
-    private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
+public class BasicZombieEntity extends PVZZombieEntity<BasicZombieEntity> {
     public BasicZombieEntity(EntityType<? extends HostileEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -37,7 +31,7 @@ public class BasicZombieEntity extends PVZZombieEntity<BasicZombieEntity> implem
     }
 
     @Override
-    protected void initGoals(){
+    protected void initGoals() {
         this.goalSelector.add(1, new BasicZombieAttackGoal(this, 1.0, false));
         this.goalSelector.add(2, new WanderAroundFarGoal(this, 1));
 
@@ -46,14 +40,10 @@ public class BasicZombieEntity extends PVZZombieEntity<BasicZombieEntity> implem
         this.targetSelector.add(2, new ActiveTargetGoal<>(this, IronGolemEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, MerchantEntity.class, true));
     }
-    @Override
-    public AnimationFactory getFactory() {
-        return factory;
-    }
 
     @Override
     protected String getAnimName(EAnimType AnimType) {
-        switch (AnimType){
+        switch (AnimType) {
             case idle -> {
                 return "animation.basic_zombie.idle";
             }

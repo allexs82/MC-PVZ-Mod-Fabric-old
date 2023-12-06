@@ -16,9 +16,8 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
-import software.bernie.geckolib3.core.IAnimatable;
 
-public abstract class AbstractRangedAttackPlant<E extends AbstractRangedAttackPlant<?> & IAnimatable> extends PVZPlantEntity<E> implements RangedAttackMob {
+public abstract class AbstractRangedAttackPlant<E extends AbstractRangedAttackPlant<?>> extends PVZPlantEntity<E> implements RangedAttackMob {
     public AbstractRangedAttackPlant(EntityType<? extends MobEntity> entityType, World world, EPlantType EPlantType) {
         super(entityType, world, EPlantType);
     }
@@ -28,7 +27,7 @@ public abstract class AbstractRangedAttackPlant<E extends AbstractRangedAttackPl
     }
 
     @Override
-    protected void initGoals(){
+    protected void initGoals() {
         this.goalSelector.add(0, new ProjectileAttackGoal(this, 0, 20, 10.0f));
         this.goalSelector.add(1, new LookAroundGoal(this));
         this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 6.0f));
@@ -37,6 +36,7 @@ public abstract class AbstractRangedAttackPlant<E extends AbstractRangedAttackPl
         this.targetSelector.add(1, new ActiveTargetGoal<>(this, MobEntity.class,
                 10, true, false, entity -> entity instanceof Monster));
     }
+
     @Override
     protected EntityNavigation createNavigation(World world) {
         EntityNavigation entityNavigation = super.createNavigation(world);

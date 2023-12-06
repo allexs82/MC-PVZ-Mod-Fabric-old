@@ -11,12 +11,12 @@ import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 
 public class ModEntitySpawn {
-   public static void addEntitySpawn() {
+    public static void addEntitySpawn() {
         BiomeModifications.addSpawn(BiomeSelectors.categories(Biome.Category.PLAINS, Biome.Category.UNDERGROUND,
                         Biome.Category.FOREST, Biome.Category.EXTREME_HILLS), SpawnGroup.MONSTER,
                 ModEntities.BASIC_ZOMBIE, 100, 4, 6);
 
         SpawnRestrictionAccessor.callRegister(ModEntities.BASIC_ZOMBIE, SpawnRestriction.Location.ON_GROUND,
                 Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HostileEntity::canSpawnInDark);
-   }
+    }
 }

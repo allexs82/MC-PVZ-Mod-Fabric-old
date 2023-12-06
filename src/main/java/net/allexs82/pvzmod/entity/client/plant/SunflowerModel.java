@@ -22,7 +22,8 @@ public class SunflowerModel extends BasePlantModel<SunflowerEntity> {
     public Identifier getAnimationFileLocation(SunflowerEntity animatable) {
         return new Identifier(PVZMod.MOD_ID, "animations/sunflower.animation.json");
     }
-    protected SunflowerModel(){
+
+    protected SunflowerModel() {
         super(false);
     }
 }

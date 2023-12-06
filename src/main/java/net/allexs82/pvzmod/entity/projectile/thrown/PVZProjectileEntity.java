@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 
 public abstract class PVZProjectileEntity extends ThrownItemEntity {
     public PVZProjectileEntity(EntityType<? extends PVZProjectileEntity> entityType, World world) {
-        super((EntityType<? extends ThrownItemEntity>)entityType, world);
+        super((EntityType<? extends ThrownItemEntity>) entityType, world);
     }
 
     public PVZProjectileEntity(EntityType<? extends ThrownItemEntity> entityType, double d, double e, double f, World world) {
@@ -35,16 +35,18 @@ public abstract class PVZProjectileEntity extends ThrownItemEntity {
         return 0;
     }
 
-    protected void applyEffects(LivingEntity livingEntity){}
+    protected void applyEffects(LivingEntity livingEntity) {
+    }
 
     @Override
     protected void onEntityHit(EntityHitResult entityHitResult) {
         super.onEntityHit(entityHitResult);
         Entity entity = entityHitResult.getEntity();
         int damage = getDamage();
-        if (entityHitResult.getEntity() instanceof PVZPlantEntity || entityHitResult.getEntity() instanceof PlayerEntity || this.getOwner() instanceof PlayerEntity) damage = 0;
+        if (entityHitResult.getEntity() instanceof PVZPlantEntity || entityHitResult.getEntity() instanceof PlayerEntity || this.getOwner() instanceof PlayerEntity)
+            damage = 0;
         entity.damage(DamageSource.thrownProjectile(this, this.getOwner()), damage);
-        if (entity instanceof LivingEntity livingEntity){
+        if (entity instanceof LivingEntity livingEntity) {
             applyEffects(livingEntity);
         }
     }

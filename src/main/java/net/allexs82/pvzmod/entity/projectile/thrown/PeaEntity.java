@@ -17,11 +17,11 @@ public class PeaEntity extends PVZProjectileEntity {
     }
 
     public PeaEntity(World world, LivingEntity owner) {
-        super((EntityType<? extends ThrownItemEntity>)ModEntities.PEA, owner, world);
+        super((EntityType<? extends ThrownItemEntity>) ModEntities.PEA, owner, world);
     }
 
     public PeaEntity(World world, double x, double y, double z) {
-        super((EntityType<? extends ThrownItemEntity>)ModEntities.PEA, x, y, z, world);
+        super((EntityType<? extends ThrownItemEntity>) ModEntities.PEA, x, y, z, world);
     }
 
     @Override

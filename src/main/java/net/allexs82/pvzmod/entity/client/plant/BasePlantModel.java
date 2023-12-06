@@ -14,13 +14,14 @@ public abstract class BasePlantModel<E extends IAnimatable> extends AnimatedGeoM
 
     private final boolean rotateHead;
 
-    protected BasePlantModel(){
+    protected BasePlantModel() {
         rotateHead = true;
     }
 
-    protected BasePlantModel(boolean rotateHead){
+    protected BasePlantModel(boolean rotateHead) {
         this.rotateHead = rotateHead;
     }
+
     @Override
     @SuppressWarnings({"unchecked"})
     public void setCustomAnimations(E entity, int uniqueID, AnimationEvent customPredicate) {

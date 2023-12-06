@@ -12,31 +12,30 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.Objects;
+
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin implements IPlayerEntityDataSaver {
 
-	@Unique
-	private NbtCompound persistenceData;
+    @Unique
+    private NbtCompound persistenceData;
 
-	public @NotNull NbtCompound PVZModFabric$getPersistenceData() {
-		if (this.persistenceData == null){
-			return this.persistenceData = new NbtCompound();
-		}
-		return this.persistenceData;
-	}
+    public @NotNull NbtCompound PVZModFabric$getPersistenceData() {
+        return Objects.requireNonNullElseGet(this.persistenceData, () -> this.persistenceData = new NbtCompound());
+    }
 
-	@Inject(method = "writeCustomDataToNbt", at = @At("HEAD"))
-	public void injectWriteMethod(NbtCompound nbt, CallbackInfo ci) {
-		if (persistenceData != null){
-			nbt.put(PVZMod.NBT_MODIFIER, persistenceData);
-		}
-	}
+    @Inject(method = "writeCustomDataToNbt", at = @At("HEAD"))
+    public void injectWriteMethod(NbtCompound nbt, CallbackInfo ci) {
+        if (persistenceData != null) {
+            nbt.put(PVZMod.NBT_MODIFIER, persistenceData);
+        }
+    }
 
-	@Inject(method = "readCustomDataFromNbt", at = @At("HEAD"))
-	public void injectReadMethod(NbtCompound nbt, CallbackInfo ci) {
-		if (nbt.contains(PVZMod.NBT_MODIFIER, NbtElement.COMPOUND_TYPE)) {
-			persistenceData = nbt.getCompound(PVZMod.NBT_MODIFIER);
-		}
-	}
+    @Inject(method = "readCustomDataFromNbt", at = @At("HEAD"))
+    public void injectReadMethod(NbtCompound nbt, CallbackInfo ci) {
+        if (nbt.contains(PVZMod.NBT_MODIFIER, NbtElement.COMPOUND_TYPE)) {
+            persistenceData = nbt.getCompound(PVZMod.NBT_MODIFIER);
+        }
+    }
 
 }
