@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package net.allexs82.pvzmod.init;
 
 import net.minecraft.entity.EquipmentSlot;
